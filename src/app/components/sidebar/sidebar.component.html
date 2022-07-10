@@ -1,0 +1,125 @@
+<div class="logo">
+    <a class="simple-text logo-mini">
+        <div class="logo-img">
+            Logo
+        </div>
+    </a>
+    <a class="simple-text logo-normal" href="https://www.creative-tim.com">
+        DocShare
+    </a>
+</div>
+<div class="sidebar-wrapper">
+    <div class="user">
+        <div class="photo">
+            <img src="./assets/img/faces/avatar.jpg"/>
+        </div>
+        <div class="user-info">
+            <a class="collapsed" data-toggle="collapse" href="#collapseExample">
+                        <span>
+                            Tania Andrew
+                            <b class="caret"></b>
+                        </span>
+            </a>
+            <div class="collapse" id="collapseExample">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">
+                            <span class="sidebar-mini">MP</span>
+                            <span class="sidebar-normal">My Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">
+                            <span class="sidebar-mini">EP</span>
+                            <span class="sidebar-normal">Edit Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">
+                            <span class="sidebar-mini">S</span>
+                            <span class="sidebar-normal">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="isMobileMenu()">
+        <form class="navbar-form">
+                <span class="bmd-form-group"><div class="input-group no-border">
+                  <input class="form-control" placeholder="Search..." type="text" value="">
+                  <button class="btn btn-round" mat-raised-button type="submit">
+                    <i class="material-icons">search</i>
+                    <div class="ripple-container"></div>
+                  </button>
+                </div></span>
+        </form>
+        <ul class="nav navbar-nav nav-mobile-menu">
+            <li class="nav-item">
+                <a class="nav-link" href="#pablo">
+                    <i class="material-icons">dashboard</i>
+                    <p>
+                        <span class="d-lg-none d-md-block">Stats</span>
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a aria-expanded="false" aria-haspopup="true" class="nav-link" data-toggle="dropdown"
+                   href="#pablo" id="navbarDropdownMenuLink">
+                    <i class="material-icons">notifications</i>
+                    <span class="notification">5</span>
+                    <p>
+                        <span class="d-lg-none d-md-block">Some Actions</span>
+                    </p>
+                </a>
+                <div aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#">Mike John responded to your email</a>
+                    <a class="dropdown-item" href="#">You have 5 new tasks</a>
+                    <a class="dropdown-item" href="#">You're now friend with Andrew</a>
+                    <a class="dropdown-item" href="#">Another Notification</a>
+                    <a class="dropdown-item" href="#">Another One</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#pablo">
+                    <i class="material-icons">person</i>
+                    <p>
+                        <span class="d-lg-none d-md-block">Account</span>
+                    </p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <ul class="nav">
+        <li class="nav-item" routerLinkActive="active">
+            <!--If is a single link-->
+            <a *ngIf="role == 'admin'" [routerLink]="['/dashboard/users']" class="nav-link">
+                <i class="material-icons">person</i>
+                <p>les utilisateurs</p>
+            </a>
+        </li>
+        <ng-container *ngIf="role === 'doctor'">
+            <li class="nav-item" routerLinkActive="active">
+                <!--If is a single link-->
+                <a [routerLink]="['/dashboard/patients']" class="nav-link">
+                    <i class="material-icons">personal_injury</i>
+                    <p>les patients</p>
+                </a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <!--If is a single link-->
+                <a [routerLink]="['/dashboard/patients']" class="nav-link">
+                    <i class="material-icons">document</i>
+                    <p>les documents</p>
+                </a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <!--If is a single link-->
+                <a [routerLink]="['/dashboard']" class="nav-link">
+                    <i class="material-icons">calendar</i>
+                    <p>les dates disponibles</p>
+                </a>
+            </li>
+        </ng-container>
+    </ul>
+</div>

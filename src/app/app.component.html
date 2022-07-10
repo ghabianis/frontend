@@ -1,0 +1,45 @@
+<div id="wrapper" style="color: rgba(94,23,235,0.96)" >
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper" style="color: rgba(94,23,235,0.96)">
+        <ul class="sidebar-nav">
+            <h2  style="color: white;font-size: 20px; margin-top: 30%; margin-left: 3%; margin-bottom: -40%;">LOG DOCKSHARE</h2>
+            <hr class="hrr">
+            <span class="mb-5  ml-2 ss" style="display: block;" >
+                <a href="#" style="display: inline;"><img src="../../../assets/img/user.png" alt=""  width="70px"  >
+                </a>
+               <!-- <h4 style="display: inline;"></h4> -->
+            </span>
+            <!-- <span class="" style="color:white;margin-bottom: -70%;"></span> -->
+
+            <hr class="hr">
+            <li>
+                <a routerLink="/" class="pat"><mat-icon style="margin-right:10%">account_box</mat-icon>
+                    Les patients</a>
+            </li>
+            <li>
+                <a routerLink="/docs" style="margin-left: 0%;"><mat-icon style="margin-right:10%">file_copy</mat-icon>
+                    Les Documents</a>
+            </li>
+            <li>
+                <a routerLink="/appointments" style="margin-left: 0%;"><mat-icon style="margin-right:10%">date_range</mat-icon>
+                     Les Dates Desponible</a>
+            </li>
+            <li>
+                <a routerLink="/users" style="margin-left: 0%;"><mat-icon style="margin-right:10%">supervised_user_circle</mat-icon>
+
+                     Users</a>
+            </li>
+        </ul>
+
+
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<router-outlet></router-outlet>

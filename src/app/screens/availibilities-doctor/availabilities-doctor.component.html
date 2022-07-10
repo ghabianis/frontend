@@ -1,0 +1,104 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <em class="material-icons"></em>
+                        </div>
+                        <h4 class="card-title">les dates quand je suis disponible</h4>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="formGroup" class="row" (ngSubmit)="submit($event)">
+                            <legend>date disponibilité</legend>
+                            <div class="col-md-12 d-flex jusitfy-content-around">
+                                <mat-form-field style="width: 25%">
+                                    <mat-placeholder>Start DateTime</mat-placeholder>
+                                    <mat-datetimepicker-toggle
+                                        [for]="dateTimeStart"
+                                        matSuffix
+                                    ></mat-datetimepicker-toggle>
+                                    <mat-datetimepicker
+                                        #dateTimeStart
+                                        [openOnFocus]="true"
+                                        [timeInterval]="5"
+                                        type="datetime"
+                                    >
+                                    </mat-datetimepicker>
+                                    <input
+                                        [matDatetimepicker]="dateTimeStart"
+                                        autocomplete="false"
+                                        formControlName="dateTimeStart"
+                                        matInput
+                                        required
+                                        class="w-50"
+                                    />
+                                </mat-form-field>
+                                <mat-form-field style="width: 25%; margin-left: 5%">
+                                    <mat-placeholder>End DateTime</mat-placeholder>
+                                    <mat-datetimepicker-toggle
+                                        [for]="dateTimeEnd"
+                                        matSuffix
+                                    ></mat-datetimepicker-toggle>
+                                    <mat-datetimepicker
+                                        #dateTimeEnd
+                                        [openOnFocus]="true"
+                                        [timeInterval]="5"
+                                        type="datetime"
+                                    >
+                                    </mat-datetimepicker>
+                                    <input
+                                        [matDatetimepicker]="dateTimeEnd"
+                                        autocomplete="false"
+                                        formControlName="dateTimeEnd"
+                                        matInput
+                                        required
+                                        class="w-50"
+                                    />
+                                </mat-form-field>
+                                <button mat-raised-button type="submit" class="btn btn-success" style="margin-left: 5%; height: 40px">
+                                    ajouetr date disponible
+                                </button>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table aria-describedby="listDoctors" class="table">
+                                        <thead>
+                                        <tr>
+                                            <th class="">date et temps début disponibilité</th>
+                                            <th class="">date et temps début disponibilité</th>
+                                            <th class="">la liste des demandes de render vous pour cette période</th>
+                                            <th class="text-right"></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody #tbody>
+                                        <tr *ngFor="let row of availabilities; let i=index">
+                                            <td class="">{{row.dateTimeStart | date: 'dd-MM-yyyy  hh:mm:ss'}}</td>
+                                            <td class="">{{row.dateTimeStart | date: 'dd-MM-yyyy  hh:mm:ss'}}</td>
+                                            <td class="">
+                                                <button mat-raised-button class="btn btn-success"
+                                                        style="margin-left: 5%; height: 40px">
+                                                    <em class="material-icons">edit</em> consulter rendez vous
+                                                </button>
+                                            </td>
+                                            <td class="text-right">
+                                                <button class="btn btn-danger" type="button">
+                                                    <em class="material-icons" (click)="delete(row.id, i)">delete</em>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

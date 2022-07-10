@@ -1,0 +1,92 @@
+<div class="row" style="margin-top: 7rem;">
+  <div class="col-lg-5 col-sm-6 ml-auto mr-auto">
+    <form [formGroup]="registration" (ngSubmit)="submit($event)">
+      <div class="card card-login" [ngClass]="{'card-hidden': !shown}">
+        <div class="card-header text-center " id="loginCard">
+          <h4 class="card-title text-white">Sign up</h4>
+        </div>
+        <div class="card-body">
+            <p class="alert alert-warning text-white text-center p-1 w-100 ml-2">tous les champs sont obligatoires</p>
+            <div class="ml-4 d-flex justify-content-center align-middle text-center">
+                <button mat-raised-button class="btn" [ngClass]="{'btn-outline-info': role !== 'patient', 'btn-info': role === 'patient'}" (click)="changeRole('patient')">
+                <span class="btn-label">
+                  <i class="material-icons">personal_injury</i>
+                </span>
+                    je suis un patient
+                </button>
+                <button mat-raised-button class="btn btn-outline-danger" [ngClass]="{'btn-outline-danger': role !== 'doctor', 'btn-danger': role === 'doctor'}" (click)="changeRole('doctor')">
+                <span class="btn-label">
+                  <i class="material-icons">person</i>
+                </span>
+                    je suis un médecin
+                </button>
+            </div>
+                <span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text">
+                        <em class="material-icons">face</em>
+                      </label>
+                    </div>
+                    <input class="form-control" placeholder="Nom ..." type="text" formControlName="firstname">
+                  </div>
+                </span>
+          <span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text">
+                        <em class="material-icons">face</em>
+                      </label>
+                    </div>
+                    <input class="form-control" placeholder="Prénom..." type="text" formControlName="lastname">
+                  </div>
+                </span>
+            <span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text">
+                        <em class="material-icons">phone_iphone</em>
+                      </label>
+                    </div>
+                    <input class="form-control" placeholder="Mobile ..." type="text" formControlName="phone">
+                  </div>
+                </span>
+            <span class="bmd-form-group" *ngIf="role === 'doctor'">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text">
+                        <em class="material-icons">work</em>
+                      </label>
+                    </div>
+                    <input class="form-control" placeholder="Specialité ..." type="text" formControlName="role">
+                  </div>
+                </span>
+          <span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text">
+                        <em class="material-icons">email</em>
+                      </label>
+                    </div>
+                    <input class="form-control" placeholder="Email..." type="email" formControlName="email">
+                  </div>
+                </span>
+          <span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text" for="password">
+                        <em class="material-icons">lock_outline</em>
+                      </label>
+                    </div>
+                    <input class="form-control" placeholder="Mot de passe..." type="password" id="password" formControlName="password">
+                  </div>
+                </span>
+        </div>
+        <div class="card-footer justify-content-center">
+          <button class="btn btn-success btn-lg" type="submit" [disabled]="registration.invalid">sign up</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

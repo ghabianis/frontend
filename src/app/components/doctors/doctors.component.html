@@ -1,0 +1,33 @@
+<div class="table-responsive">
+    <table aria-describedby="listDoctors" class="table">
+        <thead>
+        <tr>
+            <th class="text-center">nom de {{role != 'admin' ? 'médecin' : "l'utilisateur"}}</th>
+            <th class="text-center">prénom de {{role != 'admin' ? 'médecin' : "l'utilisateur"}}</th>
+            <th class="text-center">email de {{role != 'admin' ? 'médecin' : "l'utilisateur"}}</th>
+            <th class="text-center">télephone de {{role != 'admin' ? 'médecin' : "l'utilisateur"}}</th>
+            <th *ngIf="role != 'admin'" class="text-center">la spécialité</th>
+            <th class="text-center" *ngIf="role == 'admin'">role de {{role != 'admin' ? 'médecin' : "l'utilisateur"}}</th>
+            <th *ngIf="role =='admin'" class="text-right"></th>
+        </tr>
+        </thead>
+        <tbody #tbody>
+        <tr *ngFor="let row of doc">
+            <td class=""><img src="../../../assets/img/doc1.jpg" alt="imageOfUser" [ngClass]="{'w-25': role == 'admin', 'w-50': role != 'admin'}"></td>
+            <td class="text-center">{{row.fullname}}</td>
+            <td class="text-center">{{row.email}}</td>
+            <td class="text-center">{{row.phone}}</td>
+            <td  class="">Dentiste</td>
+            <td class="text-right">
+                <button *ngIf="role === 'admin'" [ngClass]="{'btn-outline-danger': row.isActive, 'btn-outline-success': !row.isActive}" class="btn"
+                        type="button" (click)="activateAccount(row.id)">
+                    <em class="material-icons"></em>
+                </button>
+                <button *ngIf="role === 'patient'" class="btn btn-info" type="button" (click)="goToAvailabilities(row.id)">
+                    demander un rendez vous
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

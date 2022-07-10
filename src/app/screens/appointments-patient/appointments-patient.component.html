@@ -1,0 +1,76 @@
+<div class="row" style="margin-top: 7rem">
+    <div class="col-md-12 card">
+        <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+                <em class="material-icons">date_range</em>
+            </div>
+            <h4 class="card-title">les dates de mes rendez vous</h4>
+        </div>
+        <div class="card-body">
+            <button mat-raised-button class="btn btn-success" (click)="openDialog('3000ms', '1500ms')" style="float: right;">CREATE APOINTMENT</button>
+            <div class="row" style="margin-top: 5rem">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table aria-describedby="listDoctors" class="table">
+                                    <thead>
+                                    <tr>
+                                        <th class="">Creation Date</th>
+                                        <th class="">Subject</th>
+                                        <th class="">Full Name</th>
+                                        <th class="text-right">Email</th>
+                                        <th class="">Phone</th>
+                                        <th class="text-right"></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody #tbody>
+                                    <tr *ngFor="let row of appointemnt; let i=index">
+                                        <td class="">{{row.created_at}}</td>
+                                        <td class="">{{row.subject}}</td>
+                                        <td class="">
+                                                 {{row.fullname}}
+                                        </td>
+                                        <td class="text-right">
+                                            {{row.email}}
+                                        </td>
+                                        <td class="text-right">
+                                            {{row.phone}}
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #addApp>
+    <form [formGroup]="apointment" (ngSubmit)="createapointment()">
+      <fieldset>
+        <mat-form-field appearance="fill">
+          <mat-label>Subject</mat-label>
+          <input matInput type="text" name="subject" formControlName="subject">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>FullName</mat-label>
+          <input matInput type="text" name="fullname" formControlName="fullname">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" name="email" formControlName="email">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Phone Number </mat-label>
+            <input matInput type="text" name="phone" formControlName="phone">
+          </mat-form-field>
+        <button mat-dialog-close class="btn btn-info mr-2">Close</button>
+        <button type="submit"  mat-dialog-close class="btn btn-info">ADD Apointment</button>
+      </fieldset>
+    </form>
+  </ng-template>

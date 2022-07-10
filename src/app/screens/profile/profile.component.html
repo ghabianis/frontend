@@ -1,0 +1,95 @@
+<div class="container-fluid row m-0 w-100 ml-auto mr-auto" style="padding-top: 7rem; margin: 0; background: transparent;">
+    <div class="col-md-8">
+        <div class="card" style="background: white;">
+            <div class="card-header card-header-icon card-header-rose">
+                <div class="card-icon">
+                    <em class="material-icons">perm_identity</em>
+                </div>
+                <h4 class="card-title">changer le profil
+                    <small class="category">Completer votre profile</small>
+                </h4>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Username</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">addresse email</label>
+                                <input class="form-control" type="email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div [ngClass]="{'col-md-4': roleUser === 'doctor', 'col-md-6': roleUser !== 'doctor'}">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">nom</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div [ngClass]="{'col-md-4': roleUser === 'doctor', 'col-md-6': roleUser !== 'doctor'}">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">prénom</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div [ngClass]="{'col-md-4': roleUser === 'doctor'}" *ngIf="roleUser === 'doctor'">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">prénom</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">addresse</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">ville</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">pays</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Postal Code</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-rose pull-right" mat-raised-button type="submit">changer mon Profile</button>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card card-profile">
+            <div class="card-avatar">
+                <a href="#pablo">
+                    <img class="img" src="./assets/img/faces/marc.jpg"/>
+                </a>
+            </div>
+            <div class="card-body">
+                <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                <h4 class="card-title">Alec Thompson</h4>
+            </div>
+        </div>
+    </div>
+</div>

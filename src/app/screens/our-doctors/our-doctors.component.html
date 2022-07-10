@@ -1,0 +1,22 @@
+<div class="container w-100 ml-auto mr-auto">
+    <h1 class="h1 text-center text-danger" style="border: 0; margin-top: 5rem">la liste de nos médecins</h1>
+    <p class="alert alert-danger text-center" [style.font-weight]="'bold'" *ngIf="role === null || role === undefined">
+        il faut se connecter pour demander un render vous</p>
+    <div class="mb-3" style="border: 0;">
+        <div class="row g-0">
+            <div class="col-md-4 pt-2">
+                <img alt="" class="img-fluid rounded-start w-100 ml-2" src="/assets/img/dcotor_appintment.jpg">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>chercher par spécialité</mat-label>
+                        <input matInput placeholder="specialité" type="text" style="color: black" [(ngModel)]="speciality"
+                               (change)="selectBySpeciality($event)">
+                    </mat-form-field>
+                    <app-doctors [rows]="doctors" [role]="role"></app-doctors>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

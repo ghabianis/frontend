@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+            <div class="card-header card-header-warning card-header-icon">
+                <div class="card-icon">
+                    <em class="material-icons">person</em>
+                </div>
+                <p class="card-category">nombre de médecins</p>
+                <h3 class="card-title">{{numberDoctors}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+            <div class="card-header card-header-rose card-header-icon">
+                <div class="card-icon">
+                    <em class="material-icons">personal_injury</em>
+                </div>
+                <p class="card-category">nombre de patients</p>
+                <h3 class="card-title">{{numberPatients}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-success card-header-icon">
+                <div class="card-icon">
+                    <em class="material-icons">person</em>
+                </div>
+                <h4 class="card-title">les utilisateurs</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <app-doctors [rows]="users" role="admin"></app-doctors>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
